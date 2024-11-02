@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+	--azul-claro: #A9D6E5;
+	--branco: #FFFFFF;
+	--cinza-claro: #F3F4F6;
+	--verde-suave: #90BE6D;
+	--preto: #000000;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+html {
+	overflow-x: hidden;
+	width: 100%;
+}
+
+/* styles gerais */
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.collumn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	font-family: "Lato", sans-serif;
+	text-align: center;
+	color: var(--branco);
+	font-size: 25px;
+}
+
+.title2 {
+	font-family: "Lato", sans-serif;
+	text-align: center;
+	color: var(--preto);
+	font-size: 20px;
+}
+
+.overlay {
+	position: relative;
+	height: 100%;
+}
+
+.overlay::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 1;
+}
+
+.overlay>* {
+	position: relative;
+	z-index: 2;
+}
+
+.botao-geral {
+	padding: 7px 20px;
+	border-radius: 50px;
+	background-color: var(--branco);
+	border: 1px solid var(--verde-suave);
+	color: var(--verde-suave);
+}
+
+.botao-geral:hover {
+	background-color: var(--preto);
+	color: var(--verde-suave);
+	transition: 1s linear;
+}
+
+.simple-text {
+	font-family: "Lato", sans-serif;
+}
+
+@media (min-width: 768px) {
+
+	.title2 {
+		font-size: 30px;
+	}
+
+}
+
+
+/* fim styles geral */
+
+/* header styles */
+
+.header-content {
+	background-color: #90be6d;
+	padding: 12px;
+	width: 100%;
+	gap: 10px
+}
+
+/* fim header styles */
+
+/* SECTION HOME */
+
+.home-content {
+	background-image: url(/assets/images/home.png);
+	background-size: cover;
+	padding-bottom: 30px;
+	padding-top: 100px;
+	gap: 10px;
+}
+
+.home-title {
+	color: var(--branco);
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+	.home-content {
+		padding-top: 350px;
+		padding-bottom: 90px;
+	}
+}
+
+/* FIM DA SECTION HOME */
+
+/* SECTION SERVICOS */
+.servicos-content {
+	padding-top: 40px;
+}
+
+.card-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	padding-top: 10px;
+}
+
+.card {
+	border: 1px solid var(--cinza-claro);
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+	height: 80px;
+}
+
+@media (min-width: 768px) {
+	.card-content {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.card {
+		width: 200px;
+	}
+}
+
+
+/* FIM DA SECTION SERVICOS */
+
+/* SECTION GALERIA DE SORRISOS */
+
+.galeria-content {
+	padding: 40px 0;
+	margin: 40px 0;
+	text-align: center;
+	overflow-y: visible;
+	background-color: var(--cinza-claro);
+}
+
+.slider {
+	width: 90%;
+	padding-top: 10px;
+	margin: auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+	width: 100%;
+	flex: 1 0 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slider img {
+	border-radius: 20px;
+	max-width: 40vh;
+	height: auto;
+}
+
+.navigation {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.slider input {
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 0 5px;
+	transition: background-color 0.3s;
+}
+
+.nav-btn {
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 0 5px;
+	transition: background-color 0.3s;
+}
+
+.nav-btn:hover,
+input:checked+.nav-btn {
+	background-color: #555;
+}
+
+#slide1:checked~.slides {
+	transform: translateX(0);
+}
+
+#slide2:checked~.slides {
+	transform: translateX(-60vh);
+}
+
+#slide3:checked~.slides {
+	transform: translateX(-124vh);
+}
+
+#slide4:checked~.slides {
+	transform: translateX(-184vh);
+}
+
+@media (min-width: 768px) {
+
+	#slide1:checked~.slides {
+		transform: translateX(0);
+	}
+
+	#slide2:checked~.slides {
+		transform: translateX(-195vh);
+	}
+
+	#slide3:checked~.slides {
+		transform: translateX(-395vh);
+	}
+
+	#slide4:checked~.slides {
+		transform: translateX(-590vh);
+	}
+
+}
+
+
+
+/* FIM DA SECTION GALERIA DE SORRISOS */
+
+/* SECTION DEPOIMENTOS */
+
+.depoimentos-container {
+	padding-top: 40px;
+	text-align: center;
+}
+
+.depoimento-card-container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+
+.depoimento-card {
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 300px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	transition: transform 0.3s ease;
+}
+
+.pessoa-depoimento {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.pessoa-depoimento img {
+	height: 40px;
+	border-radius: 100%;
+	margin-bottom: 5px;
+}
+
+.depoimento-card:hover {
+	transform: translateY(-5px);
+}
+
+.depoimento-card h3 {
+	font-size: 18px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.simple-text {
+	font-size: 16px;
+	color: #666;
+	line-height: 1.5;
+}
+
+/* FIM DA SECTION DEPOIMENTOS */
+
+/* SECTION CONTATO */
+
+.contato-container {
+	margin: 40px 0;
+	padding: 40px 0;
+	background-color: var(--cinza-claro);
+}
+
+form {
+	margin-top: 30px;
+	border: 1px solid var(--cinza-claro);
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: var(--branco);
+	width: 50%;
+}
+
+form label {
+	width: 160px;
+	text-align: left;
+	margin-top: 15px;
+}
+
+form input[type="text"] {
+	border: none;
+	background-color: var(--cinza-claro);
+	height: 30px;
+	border-radius: 30px;
+	width: 160px;
+	padding-left: 10px;
+}
+
+form input[type="submit"] {
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+
+	form {
+		width: 30%;
+	}
+
+	form input[type="text"] {
+		width: 80%;
+	}
+
+	form label {
+		width: 80%;
+	}
+
+}
+
+/* FIM DA SECTION CONTATO */
+
+/* FOOTER */
+
+
+.footer-content {
+	background-color: #90be6d;
+	padding: 12px;
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-top: 200px;
+}
+
+.footer-links {
+	margin-top: 15px;
+}
+
+.footer-links h3 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.footer-links ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer-links li {
+	margin: 5px 0;
+}
+
+.footer-links a {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+.footer-links a:hover {
+	color: var(--preto);
+}
+
+/* FIM DO FOOTER */
