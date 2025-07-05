@@ -1,3 +1,9 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('SW registrado!', reg.scope))
+      .catch(err => console.error('Erro no SW:', err));
+  }
+  
 document.addEventListener("DOMContentLoaded", () => {
 	const links = document.querySelectorAll("footer .footer-links a");
 
@@ -29,8 +35,3 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log('SW registrado!', reg.scope))
-      .catch(err => console.error('Erro no SW:', err));
-  }
